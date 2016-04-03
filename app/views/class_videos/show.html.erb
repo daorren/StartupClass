@@ -1,3 +1,6 @@
 <%= video_tag @class_video.video %>
 <%= @class_video.title %>
 <%= @class_video.description %>
+
+<%= link_to "edit", edit_class_video_path %>
+<%= link_to "delete", class_video_path, method: :delete, data:{confirm: 'Are you sure?'} %>

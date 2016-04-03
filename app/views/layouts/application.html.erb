@@ -7,8 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "YC Startup Class", root_path %>
-  <%= yield %>
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "YC Startup Class", root_path, class: "navbar-brand" %>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to "课程视频", root_path %></li>
+          <li><%= link_to "社区", '#' %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "注册", '#' %></li>
+          <li><%= link_to "登录", '#' %></li>
+        </ul>
+      </div>
+    </div><!-- container-fluid -->
+  </div><!-- navbar navbar-default -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-md-push-1">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 </html>

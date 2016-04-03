@@ -43,7 +43,7 @@ class ClassVideosController < ApplicationController
   private
 
   def video_params
-    params[class_video].permit(:title, :speakers, :cover_image, :play_count, :video, :description)
+    params[:class_video].permit(:title, :speakers, :cover_image, :play_count, :video, :description)
   end
 
   def find_video
