@@ -1,4 +1,4 @@
-<% @class_videos.each do |video| %>
+<% @class_videos.find_each do |video| %>
   <%= video.title %>
   <%= video.speakers %>
   <%= video.cover_image %>

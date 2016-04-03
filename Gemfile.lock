@@ -159,16 +159,16 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
-  bootstrap-sass
+  bootstrap-sass (~> 3.3, >= 3.3.5.1)
   byebug
   coffee-rails (~> 4.1.0)
-  haml
+  haml (~> 4.0, >= 4.0.7)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  simple_form
+  simple_form (~> 3.2)
   spring
   sqlite3
   turbolinks
