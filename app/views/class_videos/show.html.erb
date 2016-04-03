@@ -1,6 +1,33 @@
-<%= video_tag @class_video.video %>
-<%= @class_video.title %>
-<%= @class_video.description %>
+
+<div class="video_area">
+  <video id="my-video" class="video-js" controls preload="auto" data-setup="{}"  >
+    <source src= <%= @class_video.video %> type='video/mp4'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+</div>
+
+
+<h3 class="yc-video-title">
+  <%= @class_video.title %>
+</h3>
+<div class="yc-video-info">
+  <div class="panel" id="note">
+    <div class="panel-heading">
+      <h3 class="panel-title">课程资料</h3>
+    </div>
+    <div class="panel-body">
+      <%= @class_video.description %>
+    </div>
+  </div>
+
+  <div class="panel" id="comments">
+
+  </div>
+</div>
+
 
 <%= link_to "edit", edit_class_video_path %>
 <%= link_to "delete", class_video_path, method: :delete, data:{confirm: 'Are you sure?'} %>
