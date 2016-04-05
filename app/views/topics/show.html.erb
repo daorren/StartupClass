@@ -1,0 +1,26 @@
+<div class="panel">
+  <div class="panel-heading">
+    <h3><%= @topic.title %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+        <div class="comment">
+          <div class="comment-avatar">
+
+          </div>
+          <div class="comment-content">
+            <div class="comment-heading">
+              <b><%= @topic.user.email %></b>
+              <%= @topic.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+              <!-- TODO timezone wrong -->
+            </div>
+            <div class="comment-body">
+              <%= @topic.content %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<%= render 'comments/index' %>
+<%= render 'comments/form' %>

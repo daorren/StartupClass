@@ -1,37 +1,50 @@
 class TopicsController < ApplicationController
   before_action :find_topic, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    #code
+    @topics = Topic.order('created_at DESC').page params[:page]
+    # logger.info params
   end
 
   def show
-    #code
+    @commentable = Topic.find(params[:id])
+    @comments = @commentable.comments
   end
 
   def new
-    #code
+    @topic = current_user.topics.build
   end
 
   def create
-    #code
+    @topic = current_user.topics.build(topic_params.merge(user: current_user))
+    if @topic.save!
+      redirect_to @topic, notice: "Successfully create new topics"
+    else
+      render 'new'
+    end
   end
 
   def edit
-    #code
+
   end
 
   def update
-    #code
+    if @topic.update topic_params
+      redirect_to @topic, notice: "Successfully update topic"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    #code
+    @topic.destroy
+    redirect_to topics_path, notice: "Successfully delete the topic"
   end
 
   private
   def topic_params
-    params[:topic].permit[:content]
+    params[:topic].permit(:title, :content)
   end
 
   def find_topic

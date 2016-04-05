@@ -1,0 +1,33 @@
+<div class="panel">
+  <div class="panel-body">
+    <div class="pull-right">
+      <div class="input-group">
+        <!-- TODO SEARCH -->
+      </div>
+    </div>
+    <%= link_to "创建话题", new_topic_path, class: "btn btn-success" %>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-body" id="topic-lists">
+    <div class="list-group">
+      <% @topics.find_each do |topic| %>
+        <div class="topic">
+          <div class="topic-heading">
+            <%= topic.title %>
+          </div>
+          <div class="topic-info text-muted">
+            <%= topic.user.email %> ·
+            <%= topic.created_at.strftime("%Y-%m-%d %H:%M:%S") %> ·
+            <%= topic.comments.count %>条评论
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="pull-right">
+      <%= paginate @topics %>
+    </div>
+  </div>
+</div>

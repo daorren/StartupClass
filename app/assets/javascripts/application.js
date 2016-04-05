@@ -17,3 +17,5 @@
 
 //= require jquery
 //= require bootstrap-sprockets
+
+Turbolinks.enableProgressBar();

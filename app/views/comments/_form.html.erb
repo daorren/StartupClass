@@ -13,7 +13,8 @@
             <% comment = @commentable.comments.build %>
             <%= simple_form_for [@commentable, comment], remote: true do |f|%>
               <%= f.input :content, label: false, as: :text %>
-              <%= f.button :submit %>
+              <%= f.button :submit, class: "btn btn-success" %>
+              <!-- TODO play with simple_form, like hint and warning-->
             <% end %>
 
           </div>

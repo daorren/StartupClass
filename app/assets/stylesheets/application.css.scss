@@ -16,10 +16,38 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome";
 
 body{
   font: 400 1em/1.8 Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
   position: relative;
   background: #eee;
   min-height: 100%;
+}
+
+.panel-heading {
+  border-bottom: 1px solid #eee;
+}
+
+.comment-avatar {
+  float: left;
+}
+.comment-content {
+  margin-left: 60px;
+  font-size: 1.6em;
+  .comment-heading {
+    margin-bottom: 10px;
+    color: #999999;
+    font-size: 0.8em;
+  }
+}
+.panel-footer {
+  overflow: hidden;
+  background-color: white;
+  .pull-right {
+    height: 31px;
+    .pagination {
+      margin: 0;
+    }
+  }
 }

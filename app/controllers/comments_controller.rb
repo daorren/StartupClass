@@ -14,7 +14,13 @@ class CommentsController < ApplicationController
    private
 
    def find_commentable
-     @commentable = ClassVideo.find(params[:class_video_id]) || Topic.find(params[:topic_id])
+     c_id = params[:class_video_id]
+     t_id = params[:topic_id]
+     @commentable = if c_id.present?
+                      ClassVideo.find(c_id)
+                    else t_id.present?
+                      Topic.find(t_id)
+                    end
    end
 
    def comment_params
