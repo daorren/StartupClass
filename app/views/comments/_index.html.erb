@@ -1,0 +1,27 @@
+<div class="panel" id="comments">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      评论(<%= @comments.count %>)
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+      <% @comments.find_each do |comment| %>
+        <div class="comment">
+          <div class="comment-avatar">
+
+          </div>
+          <div class="comment-content">
+            <div class="comment-heading">
+              <b><%= comment.user.email %></b>
+              <%= comment.created_at.strftime('%y-%M-%D %h:%m:%s') %>
+            </div>
+            <div class="comment-body">
+              <%= comment.content %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="panel">
+  <% if user_signed_in? %>
+    <div class="panel-body">
+      <div class="comment">
+        <div class="comment-avatar">
+
+        </div>
+        <div class="comment-content">
+          <div class="comment-heading">
+            <b><%= current_user.email %></b>
+          </div>
+          <div class="comment-body">
+            <%= simple_form_for @comment do |f|%>
+              <%= f.input :content, as: :text %>
+              <%= f.button :submit %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="panel-body">
+      <%= link_to "注册", new_user_registration_path %> 或
+      <%= link_to "登录", new_user_session_path %> 后发表评论
+    </div>
+  <% end %>
+</div>

@@ -1,29 +1,31 @@
 <div class="list-group">
   <% @class_videos.find_each do |video| %>
     <div class="class-video">
-      <div class="video-img">
-        <%= image_tag video.cover_image %>
-      </div>
-      <div class="class-info">
-        <div class="class-title">
-          <%= video.title %>
+      <%= link_to "/class_videos/#{video.id}", style:"text-decoration:none;" do %>
+        <div class="video-img">
+          <%= image_tag video.cover_image %>
         </div>
-        <div class="class-speakers">
-          <%= video.speakers %>
-        </div>
-        <div class="counts">
-          <div class="play-count">
-            <%= video.play_count.presence || '12.5K' %>
+        <div class="class-info">
+          <div class="class-title">
+            <%= video.title %>
           </div>
-          <div class="play-text" style="font-size: 50%; margin-top: -10px;">
-            观看
+          <div class="class-speakers">
+            <%= video.speakers %>
+          </div>
+          <div class="counts">
+            <div class="play-count">
+              <%= video.play_count.presence || '12.5K' %>
+            </div>
+            <div class="play-text">
+              观看
+            </div>
+          </div>
+          <div class="subtitle">
+            中文字幕
+            <!-- TODO class_video attribute has_chinese_srt -->
           </div>
         </div>
-        <div class="subtitle">
-          中文字幕
-          <!-- TODO class_video attribute has_chinese_srt -->
-        </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>

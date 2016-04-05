@@ -1,0 +1,16 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list-group {
+  .comment-avatar {
+    float: left;
+  }
+  .comment-content {
+    margin-left: 60px;
+    .comment-heading {
+      margin-bottom: 10px;
+      color: #999999;
+    }
+  }
+}
