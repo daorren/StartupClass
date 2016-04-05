@@ -10,10 +10,12 @@
             <b><%= current_user.email %></b>
           </div>
           <div class="comment-body">
-            <%= simple_form_for @comment do |f|%>
-              <%= f.input :content, as: :text %>
+            <% comment = @commentable.comments.build %>
+            <%= simple_form_for [@commentable, comment], remote: true do |f|%>
+              <%= f.input :content, label: false, as: :text %>
               <%= f.button :submit %>
             <% end %>
+
           </div>
         </div>
       </div>

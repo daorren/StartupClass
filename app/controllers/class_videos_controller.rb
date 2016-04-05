@@ -6,8 +6,10 @@ class ClassVideosController < ApplicationController
   end
 
   def show
-    @comments = @class_video.comments
-  
+    @commentable = ClassVideo.find(params[:id])
+    @comments = @commentable.comments
+    # @class_video = ClassVideo.includes(:comments).find(params[:id])
+    # @comments = @class_video.comments
   end
 
   def new
@@ -49,9 +51,5 @@ class ClassVideosController < ApplicationController
 
   def find_video
     @class_video = ClassVideo.find(params[:id])
-  end
-
-  def comment_params
-    params[:comment].permit(:content)
   end
 end
