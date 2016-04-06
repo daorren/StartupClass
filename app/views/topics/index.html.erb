@@ -9,19 +9,36 @@
   </div>
 </div>
 <div class="panel">
-  <div class="panel-body" id="topic-lists">
+  <div class="panel-body" id="topic-lists" style="padding-bottom: 0;">
     <div class="list-group">
       <% @topics.find_each do |topic| %>
-        <div class="topic">
-          <div class="topic-heading">
-            <%= topic.title %>
-          </div>
-          <div class="topic-info text-muted">
-            <%= topic.user.email %> ·
-            <%= topic.created_at.strftime("%Y-%m-%d %H:%M:%S") %> ·
-            <%= topic.comments.count %>条评论
-          </div>
-        </div>
+        <% max_id = @topics.collect {|t| t.id}.max %>
+        <%= link_to "/topics/#{topic.id}", style:"text-decoration:none;" do %>
+          <% unless topic.id == max_id %>
+            <div class="topic">
+              <div class="topic-heading">
+                <%= topic.title %>
+              </div>
+              <div class="topic-info text-muted">
+                <%= topic.user.email %> ·
+                <%= topic.created_at.strftime("%Y-%m-%d %H:%M:%S") %> ·
+                <%= topic.comments.count %>条评论
+              </div>
+            </div>
+          <% else %>
+            <div class="topic last-child">
+              <div class="topic-heading">
+                <%= topic.title %>
+              </div>
+              <div class="topic-info text-muted">
+                <%= topic.user.email %> ·
+                <%= topic.created_at.strftime("%Y-%m-%d %H:%M:%S") %> ·
+                <%= topic.comments.count %>条评论
+              </div>
+            </div>
+          <% end %>
+
+        <% end %>
       <% end %>
     </div>
   </div>

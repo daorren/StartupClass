@@ -5,5 +5,5 @@ class Topic < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :content
 
-  paginates_per 1
+  # paginates_per 1
 end

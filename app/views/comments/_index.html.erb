@@ -4,23 +4,41 @@
       评论(<%= @comments.count %>)
     </h3>
   </div>
-  <div class="panel-body">
+  <div class="panel-body" style="padding-bottom: 0;">
     <div class="list-group comments">
       <% @comments.find_each do |comment| %>
-        <div class="comment group-item" id="comment-<%= comment.id %>">
-          <div class="comment-avatar">
+        <% max_id = @comments.collect {|c| c.id}.max %>
+        <% unless comment.id == max_id %>
+          <div class="comment group-item" id="comment-<%= comment.id %>">
+            <div class="comment-avatar">
 
-          </div>
-          <div class="comment-content">
-            <div class="comment-heading">
-              <b><%= comment.user.email %></b>
-              <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
             </div>
-            <div class="comment-body">
-              <%= comment.content %>
+            <div class="comment-content">
+              <div class="comment-heading">
+                <b><%= comment.user.email %></b>
+                <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+              </div>
+              <div class="comment-body">
+                <%= comment.content %>
+              </div>
             </div>
           </div>
-        </div>
+        <% else %>
+          <div class="comment group-item last-child" id="comment-<%= comment.id %>">
+            <div class="comment-avatar">
+
+            </div>
+            <div class="comment-content">
+              <div class="comment-heading">
+                <b><%= comment.user.email %></b>
+                <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+              </div>
+              <div class="comment-body">
+                <%= comment.content %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

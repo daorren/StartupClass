@@ -1,4 +1,5 @@
 <% if @comment.errors.empty? %>
+  $('.last-child').removeClass('last-child')
   new_comment = "<%= j render 'comment', comment: @comment %>";
   $('.comments').append(new_comment);
   animated();

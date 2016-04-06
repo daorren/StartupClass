@@ -24,11 +24,16 @@ body{
   background: #eee;
   min-height: 100%;
 }
+@media (min-width: 960px){
+  .container {
+      width: 1020px;
+  }
+}
+
 
 .panel-heading {
   border-bottom: 1px solid #eee;
 }
-
 .comment-avatar {
   float: left;
 }
@@ -51,10 +56,12 @@ body{
     }
   }
 }
-
 .group-item {
   border: none;
   border-bottom: 1px solid #eee;
   margin-bottom: 0;
   padding: 15px;
+}
+.last-child {
+  border-bottom: none;
 }
