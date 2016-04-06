@@ -5,9 +5,9 @@
     </h3>
   </div>
   <div class="panel-body">
-    <div class="list-group">
+    <div class="list-group comments">
       <% @comments.find_each do |comment| %>
-        <div class="comment">
+        <div class="comment group-item" id="comment-<%= comment.id %>">
           <div class="comment-avatar">
 
           </div>
