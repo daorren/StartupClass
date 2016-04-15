@@ -23,12 +23,17 @@ body{
   position: relative;
   background: #eee;
   min-height: 100%;
+  font-size: 1.4em;
 }
 @media (min-width: 960px){
   .container {
       width: 1020px;
   }
 }
+.clearfix {
+  zoom: 1;
+}
+
 
 
 .panel-heading {
@@ -39,7 +44,7 @@ body{
 }
 .comment-content {
   margin-left: 60px;
-  font-size: 1.6em;
+  padding: 10px 0px;
   .comment-heading {
     margin-bottom: 10px;
     color: #999999;
@@ -56,12 +61,21 @@ body{
     }
   }
 }
-.group-item {
-  border: none;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 0;
-  padding: 15px;
-}
-.last-child {
-  border-bottom: none;
+
+.list-group {
+  margin: -15px;
+  .list-group-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+    .list-group-item-avartar {
+      float: left;
+    }
+    .list-group-item-content {
+      margin-left: 60px;
+    }
+  }
+  .last-child {
+    border-bottom: none;
+  }
 }

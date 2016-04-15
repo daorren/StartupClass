@@ -1,0 +1,48 @@
+<div class="col-md-8">
+  <div class="panel" id="Topics">
+    <div class="panel-heading clearfix">
+      <div class="pull-right">
+        <ul class="nav nav-pills">
+          <li class="active"><%= link_to "发布", '' %></li>
+          <li><%= link_to "喜欢", '' %></li>
+        </ul>
+      </div>
+      <h3 class="panel-title"><%= params[:action].upcase %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="list-group">
+        <% @content.each do |content| %>
+          <%
+          # TODO 拼写错误检查
+          bundle_type = if params[:action] == 'topics'
+                           'topics'
+                        elsif content.commentable.class.to_s.downcase == 'topic'
+                             'topics'
+                        else
+                             'class_videos'
+                        end
+          %>
+          <% bundle_id = params[:action] == 'topics'? content.id : content.commentable.id %>
+          <a class="list-group-item" href="<%= "/#{bundle_type}/#{bundle_id}" %>">
+            <div class="list-group-item-avartar">
+
+            </div>
+            <div class="list-group-item-content">
+              <div class="list-group-item-heading">
+                <% if params[:action] == 'comments' %>
+                  <%= content.commentable.title %>
+                <% else %>
+                  <%= content.title %>
+                <% end %>
+                <span class="text-muted"> · <%= time_ago_in_words(content.created_at) %> ago</span>
+              </div>
+              <div class="text-muted">
+                <%= content.content %>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

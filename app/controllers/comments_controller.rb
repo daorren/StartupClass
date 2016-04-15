@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
    before_action :find_commentable
+   before_action :authenticate_user!
 
    def create
      @comment = @commentable.comments.build(comment_params.merge(user: current_user))
-     @comment.save
+     @comment.save!
      @comments = @commentable.comments
      respond_to do |format|
        format.html {redirect_to @commentable}
