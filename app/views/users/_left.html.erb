@@ -10,7 +10,7 @@
     </div>
     <div class="panel-footer">
       <% if user_signed_in? && current_user == @user %>
-        <%= link_to "编辑个人资料", "#", class: "btn btn-default" %>
+        <%= link_to "编辑个人资料", settings_profile_path, class: "btn btn-default" %>
       <% end %>
     </div>
   </div>

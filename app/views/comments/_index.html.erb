@@ -10,21 +10,9 @@
         <% max_id = @comments.collect {|c| c.id}.max %>
         <% unless comment.id == max_id %>
           <div class="comment list-group-item" id="comment-<%= comment.id %>">
-            <div class="comment-avatar">
-
-            </div>
-            <div class="comment-content">
-              <div class="comment-heading">
-                <b><%= comment.user.nickname %></b>
-                <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-              </div>
-              <div class="comment-body">
-                <%= comment.content %>
-              </div>
-            </div>
-          </div>
         <% else %>
           <div class="comment list-group-item last-child" id="comment-<%= comment.id %>">
+        <% end %>
             <div class="comment-avatar">
 
             </div>
@@ -38,7 +26,6 @@
               </div>
             </div>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>

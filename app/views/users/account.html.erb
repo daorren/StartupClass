@@ -1,0 +1,18 @@
+<%= render 'settings' %>
+<%= link_to "Change your password", edit_user_registration_path, class: "btn btn-primary" %>
+<div class="col-md-8">
+  <div class="panel">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= params[:action].capitalize %></h3>
+    </div>
+    <div class="panel-body">
+      <%= simple_form_for @user, url: settings_update_user_path, remote: true do |f| %>
+        <%= f.input :nickname %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <%= f.button :submit, "Save Changes", class: "btn btn-success"  %>
+      <% end %>
+    </div>
+  </div>
+</div>
