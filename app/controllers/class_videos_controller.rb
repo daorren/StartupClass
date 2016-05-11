@@ -1,5 +1,6 @@
 class ClassVideosController < ApplicationController
   before_action :find_video, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @class_videos = ClassVideo.all.order('created_at ASC')

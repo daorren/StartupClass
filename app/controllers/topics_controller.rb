@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :find_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
 
   def index
     @topics = Topic.order('created_at DESC').page params[:page]

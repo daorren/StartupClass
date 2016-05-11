@@ -22,11 +22,12 @@
       <%= @class_video.description %>
     </div>
   </div>
-
   <%= render 'comments/index' %>
   <%= render 'comments/form' %>
 </div>
 
-
-<%= link_to "edit", edit_class_video_path %>
-<%= link_to "delete", class_video_path, method: :delete, data:{confirm: 'Are you sure?'} %>
+<!-- cancancan checking_ability 示例 -->
+<% if can? [:edit, :destroy], @class_video %>
+  <%= link_to "edit", edit_class_video_path, class: "btn btn-default" %>
+  <%= link_to "delete", class_video_path, method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-default" %>
+<% end %>
