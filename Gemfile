@@ -29,6 +29,7 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'kaminari', '~> 0.16.3'
 gem 'font-awesome-rails', '~> 4.5', '>= 4.5.0.1'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
+gem 'activeadmin', '~> 1.0.0.pre2'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
