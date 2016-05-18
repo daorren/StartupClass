@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments, dependent: :destroy
@@ -26,5 +26,9 @@ class User < ActiveRecord::Base
 
   def has_role?(role)
    roles.include?(role)
+  end
+
+  def to_s
+    nickname
   end
 end
